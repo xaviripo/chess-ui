@@ -19,6 +19,7 @@ const App = () => {
   useEffect(() => {
     console.log("first");
     socketRef.current = socketIOClient(endpoint);
+    socketRef.current.on('init', data => dispatch(setGame(data.game)));
     socketRef.current.on('accepted', data => dispatch(setGame(data.game)));
     socketRef.current.on('illegal', data => dispatch(setGame(data.game)));
     socketRef.current.on('unknown', data => dispatch(setGame(data.game)));
