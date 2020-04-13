@@ -47,7 +47,7 @@ const App = () => {
   const makeMove = (move) => dispatch(enqueue(movePiece(move)));
 
   if (!game || Object.getOwnPropertyNames(game).length === 0) {
-    return <p style={{ textAlign: 'center' }}>Loading...</p>;
+    return <p style={{ textAlign: 'center' }}>Waiting for another player to connect...</p>;
   }
 
   return <Scene

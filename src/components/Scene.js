@@ -37,7 +37,7 @@ const squareStyle = {
 /* Handlers */
 
 const dragEnterHandler = (event) => {
-  event.currentTarget.style.border = '1px solid grey';
+  event.currentTarget.style.border = ' 1px solid gainsboro';
 };
 
 const dragLeaveHandler = (event) => {
