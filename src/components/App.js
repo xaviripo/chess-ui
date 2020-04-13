@@ -43,31 +43,8 @@ const App = () => {
     }
   }, [dispatch, messageQueue]);
 
-  const dropHandler = (event) => {
-
-    event.preventDefault();
-
-    const move = {
-      from: JSON.parse(event.dataTransfer.getData('text')),
-      to: [
-        parseInt(event.currentTarget.dataset.rowIndex),
-        parseInt(event.currentTarget.dataset.colIndex),
-      ]
-    };
-    dispatch(enqueue(movePiece(move)));
-    console.log('dispatched move: ', move);
-  };
-
-  const dragOverHandler = (event) => {
-    event.preventDefault();
-  };
-
-  const dragStartHandler = (event) => {
-    event.dataTransfer.setData('text', JSON.stringify([
-      parseInt(event.target.parentElement.dataset.rowIndex),
-      parseInt(event.target.parentElement.dataset.colIndex),
-    ]));
-  };
+  // TODO
+  const makeMove = (move) => dispatch(enqueue(movePiece(move)));
 
   if (!game || Object.getOwnPropertyNames(game).length === 0) {
     return <p style={{ textAlign: 'center' }}>Loading...</p>;
@@ -76,9 +53,7 @@ const App = () => {
   return <Scene
     scene={game.scene}
     team={game.team}
-    dropHandler={dropHandler}
-    dragOverHandler={dragOverHandler}
-    dragStartHandler={dragStartHandler}/>;
+    makeMove={makeMove} />;
 
 };
 
