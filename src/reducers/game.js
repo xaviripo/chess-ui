@@ -1,6 +1,11 @@
-const reducer = (state = [], action) => {
+const ActionType = {
+  SET_GAME: 'SET_GAME',
+  MOVE_PIECE: 'MOVE_PIECE',
+};
+
+const reducer = (state = null, action) => {
   switch (action.type) {
-    case 'SET_GAME':
+    case ActionType.SET_GAME:
       return action.game;
     default:
       return state;
@@ -10,8 +15,16 @@ const reducer = (state = [], action) => {
 export default reducer;
 
 const setGame = game => ({
-  type: 'SET_GAME',
+  type: ActionType.SET_GAME,
   game,
 });
 
-export { setGame };
+// Game-logic related actions. Not to be used with this reducer, but rather to
+// enqueued in the messageQueue.
+const movePiece = ({ from, to }) => ({
+  type: ActionType.MOVE_PIECE,
+  from,
+  to,
+});
+
+export { setGame, movePiece };
