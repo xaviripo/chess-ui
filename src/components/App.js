@@ -14,12 +14,11 @@ const App = () => {
 
   const socketRef = useRef(null);
 
-  const server = process.env.SERVER || '/';
-  console.log(server)
+  console.log(process.env.REACT_APP_SERVER)
 
   // Run on first render only
   useEffect(() => {
-    socketRef.current = socketIOClient(server);
+    socketRef.current = socketIOClient(process.env.REACT_APP_SERVER || '/');
     socketRef.current.on('init', data => {
       console.log('init: ', data);
       dispatch(setGame(data));
