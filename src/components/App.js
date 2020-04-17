@@ -14,8 +14,6 @@ const App = () => {
 
   const socketRef = useRef(null);
 
-  console.log(process.env.REACT_APP_SERVER)
-
   // Run on first render only
   useEffect(() => {
     socketRef.current = socketIOClient(process.env.REACT_APP_SERVER || '/');

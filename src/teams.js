@@ -1,6 +1,6 @@
 const Teams = {
-  WHITE: 'WHITE',
-  BLACK: 'BLACK',
+  WHITE: 'white',
+  BLACK: 'black',
 }
 
 export default Teams;

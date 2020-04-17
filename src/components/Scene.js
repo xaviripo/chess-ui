@@ -121,7 +121,7 @@ const Scene = ({ scene, team, makeMove }) => {
         makeMove={makeMove} />
     );
     return <tr key={rowIndex}>
-      {team === Teams.WHITE ? squares.reverse() : squares}
+      {team === Teams.WHITE ? squares : squares.reverse()}
     </tr>;
   });
   return <table style={boardStyle}><tbody>
@@ -132,7 +132,7 @@ const Scene = ({ scene, team, makeMove }) => {
 const Square = ({ square, makeMove, rowIndex, colIndex }) => {
   const style = {
     ...squareStyle,
-    background: squareBackground(imageFromPiece(square), ((rowIndex + colIndex) % 2 === 0) ? 'white' : 'gainsboro'),
+    background: squareBackground(imageFromPiece(square), ((rowIndex + colIndex) % 2 === 1) ? 'white' : 'gainsboro'),
   };
   return <td
       style={style}
