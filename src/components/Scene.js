@@ -104,9 +104,9 @@ const squareBackground = (url, color) =>
 
 /* Components */
 
-const Scene = ({ scene, team, makeMove }) => {
+const Scene = ({ board, team, makeMove }) => {
 
-  const rows = scene.map((row, rowIndex) => {
+  const rows = board.map((row, rowIndex) => {
     const squares = row.map((piece, colIndex) =>
       <Square
 
